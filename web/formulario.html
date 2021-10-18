@@ -42,51 +42,38 @@
         </div>
     </header>
 
-    <div id="slider" class='slider-big'>
-        <h1>Bienvenido al curso de React</h1>
-        <a href='blog.html' class='btn-white'>Ir al blog</a>
-    </div>
-
     <div class='center'>
 
         <section id='content'>
-            <h2 class='subheader'>Últimos artículos</h2>
 
-            <script type='text/javascript'>
+            <h1 class="subheader">Formulario</h1>
 
-                window.addEventListener('load',function(){
-        
-                    var template = document.getElementById('article-template');
-                    var articles = document.getElementById('articles');
-        
-                    for(i=1;i<=5;i++){
-        
-                        var clonado = template.cloneNode(true);
-                        clonado.removeAttribute('id');
-                        var h2 = clonado.getElementsByTagName('h2')[0];
-                        h2.innerHTML= h2.textContent + ' '+i;
-                        articles.appendChild(clonado);                
-                    }       
-                });
-            </script>
+            <form class='mid-form'>
+                <div class="form-group">
+                    <label for='nombre'>Nombre</label>
+                    <input type='text' name='nombre'/>
+                </div>
 
-            <div id="articles">
+                <div class="form-group">
+                    <label for='apellidos'>Apellidos</label>
+                    <input type='text' name='apellidos'/>
+                </div>
 
-                <article class='article-item' id='article-template'>
-                    <div class="image-wrap">
-                        <img src='assets/images/grass.jpg' alt='paisaje'>
-                    </div>
-                        <h2>Articulo de prueba</h2>
-                        <span class='date'>
-                            Hace 5 minutos
-                        </span>
-                        <a href='#'>Leer más</a>
+                <div class="form-group">
+                    <label for='bio'>Biografía</label>
+                    <textarea type='bio'></textarea>
+                </div>
 
-                    <div class="clearfix"></div>
-                </article>
-            </div>
+                <div class="form-group radiobuttons">
+                    <input type='radio' name='genero' value='hombre'/>Hombre
+                    <input type='radio' name='genero' value='mujer'/>Mujer
+                    <input type='radio' name='genero' value='otro'/>Otro
+                </div>
+                <div class="clearfix"></div>
 
-            <!--Añadir articulos JavaScript-->
+                <input type='submit' value='Enviar' class='btn btn-success'/>
+                </form>                
+
         </section>
         
         <aside id="sidebar">
