@@ -13,7 +13,7 @@ body {
     width: 100%;
     background: white;
     border-bottom: 1px solid #ccc;
-    border-top: 5px solid #61daf6;  
+    border-top: 5px solid #09a330;  
 }
 .center{
     width: 75%;
@@ -37,16 +37,25 @@ body {
     float:left;
     height: 60px;
     margin-top: -9px;
-    margin-right: -10px;
-    animation: girar infinite 30s linear;    
+    margin-right: 10px;
+    animation: latir infinite 3s linear;    
 }
 
-@keyframes girar{
-    from {
-        transform: rotate(0deg);
+@keyframes latir{
+    0% {
+        transform: scale(1, 1);
     }
-    to {
-        transform: rotate(360deg);
+
+    50%{
+        transform: scale(1.02, 1.02)
+    }
+
+    55%{
+        transform: scale(0.95, 0.95)
+    }
+
+    100% {
+        transform: rotate(1, 1);
     }
 
 }
@@ -85,7 +94,7 @@ body {
 
 
 #menu a:hover{
-    color: #3cb2d3;
+    color: #f13e3e;
 }
 
 #slider {
@@ -95,15 +104,15 @@ body {
     text-shadow: 0 0 5px #444;
 
     /*Degradado css sacado de ccsmatic.com*/
-
-    background: rgba(73,155,234,1);
-    background: -moz-radial-gradient(center, ellipse cover, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(73,155,234,1)), color-stop(100%, rgba(32,124,229,1)));
-    background: -webkit-radial-gradient(center, ellipse cover, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
-    background: -o-radial-gradient(center, ellipse cover, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
-    background: -ms-radial-gradient(center, ellipse cover, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
-    background: radial-gradient(ellipse at center, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#207ce5', GradientType=1 );
+    
+    background: rgba(166,215,142,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(166,215,142,1) 0%, rgba(10,184,53,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(166,215,142,1)), color-stop(100%, rgba(10,184,53,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(166,215,142,1) 0%, rgba(10,184,53,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(166,215,142,1) 0%, rgba(10,184,53,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(166,215,142,1) 0%, rgba(10,184,53,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(166,215,142,1) 0%, rgba(10,184,53,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6d78e', endColorstr='#0ab835', GradientType=1 );
 }
 
 #slider h1 {
@@ -357,11 +366,22 @@ textarea {
     }
 }
 
-@media (max-width: 797px) {
+@media (max-width: 931px) {
 
     #logo {
         float:none;
-        width: 250px;
+        width: 265px;
+    }
+
+    #menu {
+        width: auto;
+    }
+}
+
+@media (max-width: 819px) {
+
+    #logo {
+        float:none;       
         margin: 0px auto;
         margin-top: 20px;
     }
