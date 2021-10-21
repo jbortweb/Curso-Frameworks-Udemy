@@ -10,6 +10,8 @@ var app = express();
 
 //Cargar ficheros rutas
 
+var article_routes = require('./routes/article');
+
 //Middlewares
 
 app.use(express.urlencoded({
@@ -19,8 +21,12 @@ app.use(express.json());
 
 //CORS
 
-//Añadir prefijos a rutas
+//Añadir prefijos a rutas / cargar rutas
 
+app.use('/api', article_routes);
+
+//Prueba de la API REST
+/*
 app.get('/probando',(req,res) =>{
 
     return res.status(200).send({
@@ -30,6 +36,7 @@ app.get('/probando',(req,res) =>{
         url: 'https://www.tuwebentrelineas.es'
     });
 });
+*/
 
 //Exportar modulo(fichero actual)
 
