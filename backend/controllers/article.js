@@ -323,11 +323,9 @@ var controller = {
     getImage: (req, res) => {
 
         var file = req.params.image;
-        var path_file = './upload/articles/'+file;
+        var path_file = './upload/articles/'+file;        
 
-        fs.stat(path_file, (exists) => {
-
-            if(stats){
+            if(fs.existsSync(path_file)){
                 return res.sendFile(path.resolve(path_file));
 
             }else {
@@ -337,9 +335,48 @@ var controller = {
                 message: 'La imagen no existe'
                 });
             }
-        });
         
     },
+
+    search: (req, res)=> {
+        //Sacar el string a buscar
+
+        var searchString = req.params.search;
+        
+        //Find or
+
+        Article.find({ "$or": [
+
+            {'title': {"$regex": searchString, "$options": "i"}},
+            {'content': {"$regex": searchString, "$options": "i"}},
+
+        ]})
+
+        .sort([['date', 'descending']])
+        .exec((err, articles) => {
+
+            if(err){
+
+                return res.status(500).send({
+                    status: 'error',
+                    message: 'Error en la petición'
+                });
+            }
+
+            if(!articles || articles.length <=0) {
+
+                return res.status(404).send({
+                    status: 'error',
+                    message: 'No hay articulos que coincidan con tu busqueda'
+                });
+            }
+
+            return res.status(200).send({
+                status: 'success',
+                articles
+            });
+        })
+    }
  
 }; //Fin del controller
 
