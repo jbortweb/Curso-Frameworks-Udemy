@@ -4,3 +4,14 @@
 <h2>{{year}}</h2>
 <p>Hola soy un parrafo de prueba nuevo</p>
 <hr>
+
+<button (click)="ocultarPeliculas()">Ocultar peliculas</button>
+
+<div *ngIf='mostrarPeliculas'>
+
+    <peliculas></peliculas>
+</div>
+
+<pruebas></pruebas>
+
+<hr>

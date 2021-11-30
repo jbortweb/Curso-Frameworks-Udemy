@@ -10,12 +10,18 @@ export class MiComponente {
     public titulo: string;
     public comentario: string;
     public year: number;
+    public mostrarPeliculas: boolean;
 
     constructor(){
 
         this.titulo = 'Soy mi componente';
         this.comentario = 'Este es mi primer componente';
         this.year = 2021;
-        console.log('Componente mi-componente cargado!!');
+        this.mostrarPeliculas = true;
+    }
+
+    ocultarPeliculas(){
+        this.mostrarPeliculas = false;
+        console.log('no hay error');
     }
 }
