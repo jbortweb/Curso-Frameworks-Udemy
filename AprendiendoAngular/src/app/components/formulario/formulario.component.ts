@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormularioComponent implements OnInit {
 
-  constructor() { }
+  public title: string;
+
+  constructor() { 
+
+    this.title = 'Formulario';
+  }
 
   ngOnInit(): void {
   }

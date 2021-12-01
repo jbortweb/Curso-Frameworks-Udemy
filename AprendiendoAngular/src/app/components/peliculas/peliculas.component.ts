@@ -8,9 +8,11 @@ import { Component, OnInit, DoCheck, OnDestroy } from '@angular/core';
 export class PeliculasComponent implements OnInit, DoCheck {
 
   public titulo: string;
+  public title: string;
 
   constructor() { 
-    this.titulo = 'Componente peliculas';
+    this.titulo = 'Componente películas';
+    this.title = 'Películas';
   }
 
   ngOnInit(): void {
