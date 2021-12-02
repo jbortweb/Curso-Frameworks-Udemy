@@ -27,4 +27,9 @@ export class PaginaComponent implements OnInit {
     });
   }
 
+  redireccion(){
+
+    this._router.navigate(['formulario']);
+  }
+
 }
