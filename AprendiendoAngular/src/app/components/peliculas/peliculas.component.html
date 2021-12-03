@@ -29,6 +29,13 @@
             <img src='{{pelicula.image}}' alt='{{pelicula.titulo}}'>
         </div>
             <h2>{{i+1}} {{pelicula.titulo}}</h2>
+            <span class="year"[ngClass] = "{
+                                'year-green':pelicula.year > 2020,
+                                'year-red' : pelicula.year <= 2020
+                                }"
+            >
+                {{pelicula.year}}
+            </span>
 
         <div class="clearfix"></div>
     </article>
