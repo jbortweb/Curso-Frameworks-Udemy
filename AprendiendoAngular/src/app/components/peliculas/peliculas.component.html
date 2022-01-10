@@ -11,12 +11,13 @@
         Película favorita
       </h2>
       <h4>
-        {{favorita.title}}
+        {{favorita.title | uppercase}}  <!--uppercase Pipes de texto-->
       </h4>
 
       <h5>
-        {{favorita.year}}
+        {{favorita.year | espar }}
       </h5>
+      <h5>{{this.fecha | date: 'dd/MM/yyyy'}}</h5> <!--date Pipes de fechas-->
     </div>
     <h1 class="subheader">{{ title }}</h1>
 
