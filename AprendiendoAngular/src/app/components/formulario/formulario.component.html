@@ -5,6 +5,7 @@
 
 <div class="center">
   <section id="content">
+    <!--
     <h1 class="subheader">Formularios</h1>
 
     <div id='datos-al-vuelo' *ngIf='user.nombre'>
@@ -24,31 +25,53 @@
         </p>
       
     </div>
+    -->
+    <br>
 
     <form class='mid-form' #userForm='ngForm' (ngSubmit)='onSubmit()'>
       <div class="form-group">
           <label for='nombre'>Nombre</label>
-          <input type='text' name='nombre'#nombre='ngModel' [(ngModel)]='user.nombre'/>
+          <input type='text' name='nombre'#nombre='ngModel' [(ngModel)]='user.nombre' required pattern="[a-zA-Z]+"/>
+
+          <small *ngIf='!nombre.valid && nombre.touched'>
+            El nombre no es válido
+          </small>
       </div>
 
       <div class="form-group">
           <label for='apellidos'>Apellidos</label>
-          <input type='text' name='apellidos'#apellidos='ngModel' [(ngModel)]='user.apellidos'/>
+          <input type='text' name='apellidos'#apellidos='ngModel' [(ngModel)]='user.apellidos' required pattern="[a-zA-Z]+" />
+
+          <small *ngIf='!apellidos.valid && apellidos.touched'>
+            Los apellidos no son válidos
+          </small>
       </div>
 
       <div class="form-group">
           <label for='bio'>Biografía</label>
-          <textarea name='bio' #bio='ngModel' [(ngModel)]='user.bio'></textarea>
+          <textarea name='bio' #bio='ngModel' [(ngModel)]='user.bio' required ></textarea>
+
+          <small *ngIf='!bio.valid && bio.touched'>
+            La biografía no es válida
+          </small>
       </div>
 
       <div class="form-group radiobuttons">
-          <input type='radio' name='genero' value='hombre' [(ngModel)]='user.genero' />Hombre
-          <input type='radio' name='genero' value='mujer' [(ngModel)]='user.genero'/>Mujer
-          <input type='radio' name='genero' value='otro' [(ngModel)]='user.genero'/>Otro
+          <input type='radio' name='genero' value='hombre' #genero='ngModel' [(ngModel)]='user.genero' required />Hombre
+          <input type='radio' name='genero' value='mujer'#genero='ngModel' [(ngModel)]='user.genero'/>Mujer
+          <input type='radio' name='genero' value='otro' #genero='ngModel' [(ngModel)]='user.genero'/>Otro
+
+          <small *ngIf='!genero.valid && genero.touched'>
+            El genero no es válido
+          </small>
       </div>
       <div class="clearfix"></div>
 
-      <input type='submit' value='Enviar' class='btn btn-success'/>
+      <input type='submit' value='Enviar' class='btn btn-success' [disabled]='userForm.invalid'/>
+
+      <small *ngIf='userForm.invalid'>
+        El formuario no puede ser enviado hasta que esten todos los datos correctos
+      </small>
       </form>
   </section>
 
